@@ -1,0 +1,73 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+
+
+<div class="main">
+<div class="row">
+    <div class="col-md-7">
+        <div class="container">
+            <div  class="shadow p-3 mb-2 bg-body rounded">
+                <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div class="mb-2">
+                         <label  class="form-label">Article No./Name</label>
+                         <input type="text" class="form-control"  name="name" placeholder="Enter Article No.or Name here">
+                        </div>
+                   <div class="mb-2">
+                     <label  class="form-label">Choose Image</label>
+                     <input type="file" name="imag" onchange="loadFile(event)">
+
+                   </div>
+                   <div class="mb-2">
+                      <label class="form-label">Select Category</label>
+                        <select name="maincategory">
+                            <option value="mens">MENS</option>
+                            <option value="ladies">LADIES</option>
+                            <option value="girls">GIRLS</option>
+                            <option value="boys">BOYS</option>
+                            <option value="kids">KIDS</option>
+                          </select>
+                   </div>
+                      <div class="mb-2">
+                      <label class="form-label">Select Sub-Category</label>
+                       <select name="category">
+                            <option value="casual">CASUAL</option>
+                            <option value="formal">FORMAL</option>
+                            <option value="semi-formal">SEMI-FORMAL</option>
+                       </select>
+                       <label class="form-label">Designed By</label>
+                       <select name="dby">
+                            <option value="Anas NS">ANAS NS</option>
+                            <option value="Sajith VP">SAJITH VP</option>
+                            <option value="Diljith K">DILJITH K</option>
+                       </select>
+                   </div>
+                       <input id="submitForm" type="submit" value="Upload">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+         <div class="container"><br><i>Preview:</i>
+         <img class="prvw" id="output"/>
+         </div>
+    </div>
+</div>
+</div>
+
+<script>
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>
+<script>
+   $("#submitForm").click(function() {
+      alert("Design Uploaded Successfully");
+   });
+</script>
+{% endblock %}

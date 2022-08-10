@@ -1,0 +1,33 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<div class="main">
+  <br>
+     <div style="display: flex; width:100%;">
+    <h3>User Details</h3>
+         <a href="{% url 'register' %}"><i class="material-icons" style="font-size:35px;color:grey;margin-left:950px;"
+         data-toggle="tooltip" data-placement="top" title="Add User">person_add</i></a>
+     </div>
+        <table>
+           <tr style=" background-color: #808080;">
+             <th>USERNAME</th>
+             <th>MAIL-ID</th>
+             <th>CREATED DATE</th>
+             <th>LAST LOGIN DETAILS</th>
+
+           </tr>
+           {% for i in user %}
+           <tr>
+             <td>{{i.username}}</td>
+             <td>{{i.email}}</td>
+             <td>{{i.date_joined}}</td>
+             <td>{{i.last_login}}</td>
+             <td style="width:40px;">
+                 <a href="{% url 'deleteuser' i.id %}"><i class="material-icons" style="font-size:24px; color:black;"
+                     data-toggle="tooltip" data-placement="top" title="Delete {{i.username}}">delete_forever</i></a>
+             </td>
+            </tr>
+            {% endfor %}
+        </table>
+ </div>
+
+{% endblock %}

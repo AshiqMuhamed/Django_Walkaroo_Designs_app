@@ -1,0 +1,32 @@
+{% extends 'topnavbase.html' %}
+{% block content %}
+
+
+<br>
+<p style="margin-left:10%; font-weight: bold; font-size:20px;">
+    <i class="fa fa-caret-right"></i>&nbsp;CART</p>
+<div class="container px-4">
+  <div class="row gx-5" style="height:700px;">{% for i in crt %}
+    <div class="col-sm-2" style="position: relative;">
+<!--        {% if i.status == 'p1' or i.status == 'p2' or i.status == 'p3' or i.status == 'p4' or i.status == 'p5' %}-->
+            {% if i.tilldate == 6 %}
+              <div class="top"><span class="indicator red"></span></div>
+            {% elif i.tilldate == 5 %}
+               <div class="top"><span class="indicator yellow"></span></div>
+            {% else %}
+               <div class="top"><span class="indicator green"></span></div>
+            {% endif %}
+        <img src="{{i.cproduct.img.url}}" style="width:110px; height:249px;border-radius: 4px;">
+<!--                <div class="topremarks"><i class="fa fa-envelope" style="top:1px; color:white;"-->
+<!--                          data-toggle="tooltip" data-placement="top" title="{{i.remarks}}" ></i>-->
+<!--            </div>-->
+        <span class="brmedium"></span>
+
+        <button class="button">{{i.cuser.username}}{{i.cproduct_id}}</button>
+<!--        {% endif %}-->
+    </div>{% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}

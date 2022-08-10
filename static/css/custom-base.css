@@ -1,0 +1,53 @@
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+.ratings{
+  background-color: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 5px 2px;
+  width:50px;
+  height:50px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+  }
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+
+
+

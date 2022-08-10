@@ -1,0 +1,29 @@
+{% extends 'topnavbase.html' %}
+{% block content %}
+<br>
+<h5 style="padding-left: 50px;  font-weight: bold;">MY CART</h5>
+<br>
+<div class="row gx-1">{% for i in ctr %}
+  <div class="col-md-12">
+    <div class="container">
+      <div  class="shadow p-3 mb-2 bg-body" style="border-radius:8px;">
+        <div class="row" style="height:150px;">
+          <div class="col-md-5">
+            <img src={{i.cproduct.img.url}} class="cartitem" style="transform: rotate(90deg); margin-top:-100px;">
+
+          </div>
+
+          <div class="col-md-3">
+            <h3 class="align-bottom">{{i.cproduct.name}}</h3>
+          </div>
+          <div class="col-md-4">
+            <a href="{% url 'remove' i.id %}" class="btn btn-secondary">REMOVE</a>
+            <a href="{% url 'updatestatus' i.id %}" class="btn btn-secondary">UPDATE STATUS</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>{% endfor %}
+</div>
+{% endblock %}
